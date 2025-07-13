@@ -7,10 +7,10 @@ images:
     alt: Chocholáč z Pálavy
     heading: Dudek Chocholatý
     caption: Tenhle fešák nám s Romanem sedl naprosto krásně a ukázkově, skoro jak na výstavce.
-    post_url: /2025/07/01/dudek-chocholaty.html
+    post_url: /blogtest/2025/07/01/dudek-chocholaty.html
   - url: /assets/photos/owl.jpg
     alt: Barn owl
     heading: Owl
     caption: Nocturnal barn owl
-    post_url: /2024/06/15/owl-night.html
+    post_url: /blogtest/2024/06/15/owl-night.html
 ---

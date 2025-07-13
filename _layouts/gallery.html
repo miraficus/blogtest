@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<link href="/css/override.css" rel="stylesheet" type="text/css">
+
+<div class="gallery-container" style="max-width:1200px; margin:auto;">
+  <h1 style="text-align:center; margin-top:30px;">{{ page.title | escape }}</h1>
+  {% if page.description %}
+    <p style="text-align:center; color:#888;">{{ page.description }}</p>
+  {% endif %}
+
+  <div class="gallery-grid" style="display:flex; flex-wrap:wrap; justify-content:center; gap:18px;">
+    {% if page.images %}
+      {% for image in page.images %}
+        <div class="gallery-item" style="flex: 0 1 320px; box-shadow:0 2px 8px #ccc; border-radius:8px; overflow:hidden; background:#fff;">
+          <img src="{{ image.url }}" alt="{{ image.alt | default: 'Wildlife photo' }}" style="width:100%; display:block;" loading="lazy"/>
+          {% if image.caption %}
+            <div style="padding:8px 12px; font-size:0.95em; color:#555;">{{ image.caption }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <!-- If not using images in front matter, scan a folder instead -->
+      {% assign gallery_path = page.gallery_path | default: '/assets/photos/' %}
+      {% for file in site.static_files %}
+        {% if file.path contains gallery_path %}
+          <div class="gallery-item" style="flex: 0 1 320px; box-shadow:0 2px 8px #ccc; border-radius:8px; overflow:hidden; background:#fff;">
+            <img src="{{ file.path }}" alt="Wildlife photo" style="width:100%; display:block;" loading="lazy"/>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>

@@ -18,7 +18,15 @@ layout: default
           {% if image.heading or image.caption %}
             <div style="padding:8px 12px; font-size:0.95em; color:#555;">
               {% if image.heading %}
-                <div style="font-weight:bold;">{{ image.heading }}</div>
+                {% if image.post_url %}
+                  <div style="font-weight:bold;">
+                    <a href="{{ image.post_url }}" style="color:inherit; text-decoration:none;">
+                      {{ image.heading }}
+                    </a>
+                  </div>
+                {% else %}
+                  <div style="font-weight:bold;">{{ image.heading }}</div>
+                {% endif %}
               {% endif %}
               {% if image.caption %}
                 <div>{{ image.caption }}</div>

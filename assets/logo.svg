@@ -1,0 +1,14 @@
+<svg width="400" height="100" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .calligraphy {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
+      fill: #3B413C;
+      font-weight: bold;
+    }
+  </style>
+  <text x="20" y="65" class="calligraphy">Site Name</text>
+  <defs>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+  </defs>
+</svg>

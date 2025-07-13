@@ -15,15 +15,19 @@ layout: default
       {% for image in page.images %}
         <div class="gallery-item" style="flex: 0 1 320px; box-shadow:0 2px 8px #ccc; border-radius:8px; overflow:hidden; background:#fff;">
           <img src="{{ image.url }}" alt="{{ image.alt | default: 'Wildlife photo' }}" style="width:100%; display:block;" loading="lazy"/>
-          {% if image.heading %}
-            <div style="padding:8px 12px; font-size:0.95em; color:#555; font-weight:bold;">{{ image.heading }}</div>
-          {% if image.caption %}
-            <div style="padding:8px 12px; font-size:0.95em; color:#555;">{{ image.caption }}</div>
+          {% if image.heading or image.caption %}
+            <div style="padding:8px 12px; font-size:0.95em; color:#555;">
+              {% if image.heading %}
+                <div style="font-weight:bold;">{{ image.heading }}</div>
+              {% endif %}
+              {% if image.caption %}
+                <div>{{ image.caption }}</div>
+              {% endif %}
+            </div>
           {% endif %}
         </div>
       {% endfor %}
     {% else %}
-      <!-- If not using images in front matter, scan a folder instead -->
       {% assign gallery_path = page.gallery_path | default: '/assets/photos/' %}
       {% for file in site.static_files %}
         {% if file.path contains gallery_path %}
